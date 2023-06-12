@@ -1,0 +1,39 @@
+# Box Office Star Wars (in Millions)
+new_hope <- c(460.998, 314.4)
+empire_strikes <- c(290.475, 247.900)
+return_jedi <- c(309.306, 165.8)
+box_office <- c(new_hope, empire_strikes, return_jedi)
+
+# Construct a Matrix:
+star_wars_matrix <- matrix(box_office, byrow = TRUE, nrow = 3)
+region <- c("US", "non-US")
+titles <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
+colnames(star_wars_matrix) <- region
+rownames(star_wars_matrix) <- titles
+
+star_wars_matrix <- matrix(box_office,
+                        nrow = 3, byrow = TRUE,
+                        dimnames = list(titles, region))
+         
+# Calculate worldwide box office figures:
+worldwide_vector <- rowSums(star_wards_matrix)
+
+# Bind the new variable worldwide_vector as a column row to star_wars_matrix
+all_wars_matrix <- cbind(star_wars_matrix, worldwide_vector)
+all_wars_matrix <- rbind(star_wars_matrix, star_wars_matrix2)
+
+# Total revenue for US and non-US
+total_revenue_vector <- colSums(all_wars_matrix)
+
+# Select the non-US revenue for all movies
+non_us_all <- all_wars_matrix[,2]
+mean(non_us_all)
+  
+# Select the non-US revenue for first two movies
+non_us_some <- all_wars_matrix[1:2,2]
+mean(non_us_some)
+
+# Estimated number of visitors
+visitors <- all_wars_matrix / ticket_prices_matrix
+us_visitors <- visitors[ ,1]
+mean(us_visitors)
